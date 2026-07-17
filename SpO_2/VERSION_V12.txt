@@ -1,0 +1,1 @@
+SpO2 STM32F429I-DISCO diagnostic build v12

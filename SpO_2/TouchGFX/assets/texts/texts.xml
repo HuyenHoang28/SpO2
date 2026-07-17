@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextDatabase xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="texts.xsd" Version="4.26.1">
+  <Languages>
+    <Language Id="GB" />
+  </Languages>
+  <Texts>
+    <TextGroup Id="Group1" />
+    <TextGroup Id="Unsorted">
+      <Text Id="__SingleUse_NCO8" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">HEALTH MONITOR</Translation>
+      </Text>
+      <Text Id="__SingleUse_PKZL" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">01/01/2000</Translation>
+      </Text>
+      <Text Id="__SingleUse_5AZG" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">Date: &lt;value&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_UNNZ" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">HEALTH MONITOR</Translation>
+      </Text>
+      <Text Id="__SingleUse_FRSO" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">Place Finger</Translation>
+      </Text>
+      <Text Id="__SingleUse_EHUC" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">12:00:00</Translation>
+      </Text>
+      <Text Id="__SingleUse_8CWA" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">--</Translation>
+      </Text>
+      <Text Id="__SingleUse_TW9N" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">--</Translation>
+      </Text>
+      <Text Id="__SingleUse_Q8HB" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">&lt;value&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_ZH1S" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">Time: &lt;value&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_T41Z" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">BPM&#10;&lt;value&gt;</Translation>
+      </Text>
+      <Text Id="ResourceId1" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">New Text</Translation>
+      </Text>
+      <Text Id="__SingleUse_QEZ0" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">New Tex</Translation>
+      </Text>
+      <Text Id="__SingleUse_M8N9" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">SpO2&#10; &lt;value&gt; %</Translation>
+      </Text>
+    </TextGroup>
+  </Texts>
+  <Typographies>
+    <Typography Id="Default" Font="verdana.ttf" Size="20" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" WildcardCharacters="0123456789:/- %" WildcardCharacterRanges="0x20-0x7F" />
+    <Typography Id="Large" Font="verdana.ttf" Size="40" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" />
+    <Typography Id="Small" Font="verdana.ttf" Size="10" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" />
+    <Typography Id="Typography1" Font="verdana.ttf" Size="20" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" />
+  </Typographies>
+</TextDatabase>
