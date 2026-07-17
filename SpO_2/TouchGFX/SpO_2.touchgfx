@@ -1,0 +1,288 @@
+{
+  "Application": {
+    "Screens": [
+      {
+        "Name": "Screen1",
+        "Components": [
+          {
+            "Type": "TextArea",
+            "Name": "textSpO2",
+            "X": 25,
+            "Y": 80,
+            "Width": 66,
+            "Height": 48,
+            "TextId": "__SingleUse_M8N9",
+            "TextRotation": "0",
+            "AutoSize": true,
+            "Wildcard1": {
+              "TextId": "__SingleUse_TW9N",
+              "UseBuffer": true,
+              "BufferSize": 20
+            },
+            "Color": {
+              "Red": 90,
+              "Green": 230,
+              "Blue": 140
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "textBpm",
+            "X": 166,
+            "Y": 80,
+            "Width": 54,
+            "Height": 48,
+            "TextId": "__SingleUse_T41Z",
+            "TextRotation": "0",
+            "AutoSize": true,
+            "Wildcard1": {
+              "TextId": "__SingleUse_8CWA",
+              "UseBuffer": true,
+              "BufferSize": 20
+            },
+            "Color": {
+              "Red": 60,
+              "Green": 190,
+              "Blue": 255
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "textTime",
+            "X": 11,
+            "Y": 148,
+            "Width": 160,
+            "Height": 24,
+            "TextId": "__SingleUse_ZH1S",
+            "TextRotation": "0",
+            "AutoSize": true,
+            "Wildcard1": {
+              "TextId": "__SingleUse_EHUC",
+              "UseBuffer": true,
+              "BufferSize": 32
+            },
+            "Color": {
+              "Red": 235,
+              "Green": 240,
+              "Blue": 245
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "textDate",
+            "X": 11,
+            "Y": 206,
+            "Width": 185,
+            "Height": 24,
+            "TextId": "__SingleUse_5AZG",
+            "TextRotation": "0",
+            "AutoSize": true,
+            "Wildcard1": {
+              "TextId": "__SingleUse_PKZL",
+              "UseBuffer": true,
+              "BufferSize": 32
+            },
+            "Color": {
+              "Red": 235,
+              "Green": 240,
+              "Blue": 245
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "textStatus",
+            "X": 60,
+            "Y": 257,
+            "Width": 121,
+            "Height": 24,
+            "TextId": "__SingleUse_Q8HB",
+            "TextRotation": "0",
+            "AutoSize": true,
+            "Wildcard1": {
+              "TextId": "__SingleUse_FRSO",
+              "UseBuffer": true,
+              "BufferSize": 40
+            },
+            "Color": {
+              "Red": 255,
+              "Green": 210,
+              "Blue": 80
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "textArea1",
+            "X": 28,
+            "Y": 22,
+            "Width": 184,
+            "Height": 24,
+            "TextId": "__SingleUse_UNNZ",
+            "TextRotation": "0",
+            "AutoSize": true,
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            }
+          }
+        ],
+        "Interactions": [
+          {
+            "InteractionName": "ChangeScreen",
+            "Trigger": {
+              "Type": "TriggerPhysicalButtonClicked"
+            },
+            "Action": {
+              "Type": "ActionGotoScreen",
+              "ScreenTransitionType": "ScreenTransitionNone",
+              "ActionComponent": "Screen2"
+            }
+          }
+        ]
+      },
+      {
+        "Name": "Screen2",
+        "Components": [
+          {
+            "Type": "DynamicGraph",
+            "Name": "BPM_Graph",
+            "Y": 193,
+            "Width": 240,
+            "Height": 96,
+            "DataSeed": -1615226550,
+            "NumberOfValues": 100,
+            "MaxY": 180.0,
+            "MinY": 40.0,
+            "Precision": "1",
+            "LastIndex": 0,
+            "XAxisScale": 1.0,
+            "InsertRandomValues": false,
+            "GraphType": "GraphScroll",
+            "GraphDrawers": [
+              {
+                "Type": "LineDrawer",
+                "LineWidth": 2,
+                "FileNameImage": "",
+                "Color": {
+                  "Red": 20,
+                  "Green": 151,
+                  "Blue": 197
+                }
+              }
+            ]
+          },
+          {
+            "Type": "DynamicGraph",
+            "Name": "SpO2_Graph",
+            "Y": 64,
+            "Width": 240,
+            "Height": 96,
+            "DataSeed": -1615226550,
+            "NumberOfValues": 100,
+            "MaxY": 105.0,
+            "MinY": 70.0,
+            "Precision": "1",
+            "LastIndex": 0,
+            "XAxisScale": 1.0,
+            "InsertRandomValues": false,
+            "GraphType": "GraphScroll",
+            "GraphDrawers": [
+              {
+                "Type": "LineDrawer",
+                "LineWidth": 2,
+                "FileNameImage": "",
+                "Color": {
+                  "Red": 57,
+                  "Green": 196,
+                  "Blue": 22
+                }
+              }
+            ]
+          },
+          {
+            "Type": "TextArea",
+            "Name": "textArea1",
+            "X": 28,
+            "Y": 22,
+            "Width": 184,
+            "Height": 24,
+            "TextId": "__SingleUse_NCO8",
+            "TextRotation": "0",
+            "AutoSize": true,
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            }
+          }
+        ],
+        "Interactions": [
+          {
+            "InteractionName": "ChangeScreen",
+            "Trigger": {
+              "Type": "TriggerPhysicalButtonClicked"
+            },
+            "Action": {
+              "Type": "ActionGotoScreen",
+              "ScreenTransitionType": "ScreenTransitionNone",
+              "ActionComponent": "Screen1"
+            }
+          }
+        ]
+      }
+    ],
+    "CustomContainerDefinitions": [],
+    "Name": "STM32F429I_DISCO_REV_D01",
+    "Resolution": {},
+    "SelectedColorDepth": 16,
+    "StartupScreenName": "Screen1",
+    "SelectedStartupLanguage": "GB",
+    "TouchGfxPath": "../Middlewares/ST/touchgfx",
+    "UIPath": ".",
+    "AvailableColorDepths": [
+      16
+    ],
+    "AvailableLCDs": {
+      "16": "LCD16bpp"
+    },
+    "AvailableSections": [
+      "ExtFlashSection",
+      "IntFlashSection"
+    ],
+    "AvailableResolutions": [
+      {}
+    ],
+    "PhysicalButtons": [],
+    "FrameworkFeatures": {
+      "LCD16bpp": {
+        "Id": "LCD16bpp",
+        "IsEnabled": true
+      }
+    },
+    "GenerateAssetsCommand": "make -f simulator/gcc/Makefile assets -j8",
+    "PostGenerateCommand": "touchgfx update_project --project-file=simulator/msvs/Application.vcxproj",
+    "PostGenerateTargetCommand": "touchgfx update_project",
+    "CompileSimulatorCommand": "make -f simulator/gcc/Makefile -j8",
+    "RunSimulatorCommand": "build\\bin\\simulator.exe",
+    "CompileTargetCommandOverride": "make -f ../gcc/Makefile -j8",
+    "FlashTargetCommandOverride": "make -f ../gcc/Makefile flash",
+    "LandscapeSkinX": 0,
+    "LandscapeSkinY": 0,
+    "PortraitSkinX": 0,
+    "PortraitSkinY": 0,
+    "DisplayOrientation": "Portrait",
+    "Family": "STM32F4",
+    "SubFamily": "STM32F429/439",
+    "Toolchain": "STM32CubeIDE",
+    "Platform": "m4",
+    "ProjectFile": "../STM32F429I_DISCO_REV_D01.ioc",
+    "OptionalComponentsRoot": "../Middlewares/ST/touchgfx_components",
+    "OptionalComponents": [],
+    "AdditionalFeatures": [
+      "CWRVector",
+      "VectorFonts"
+    ]
+  },
+  "Version": "4.26.1",
+  "CreatedBy": "4.26.1"
+}
