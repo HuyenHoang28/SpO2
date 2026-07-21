@@ -1,0 +1,6 @@
+SpO2 STM32F429I-DISCO + MAX30102 + Tiny RTC + TouchGFX
+Revision: v11
+Display base: v9 known-good TouchGFX
+Sensor stability fixes: transient I2C/FIFO errors no longer become false
+MAX30102 MISSING alarms; repeated address confirmation, FIFO recovery,
+MAX30102 bus priority, delayed RTC probing, and software-clock fallback.

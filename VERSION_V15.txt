@@ -1,0 +1,8 @@
+SpO2 project version 15
+
+Fixes:
+- Finger presence uses IR only; weak Red no longer blocks measurement start.
+- BPM and SpO2 have independent validity flags and independent LCD display.
+- BPM calculation no longer returns early when Red DC is missing.
+- Peak interval fallback added when autocorrelation is inconclusive.
+- LCD shows compact IR/Red raw values during diagnosis.

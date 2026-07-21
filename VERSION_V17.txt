@@ -1,0 +1,1 @@
+SpO2 project version 17 - MAX30102 FIFO force-start and register diagnostics.

@@ -1,0 +1,8 @@
+SpO2 project version 16
+
+Fixes:
+- Continuous Red/IR buffering; finger detector no longer blocks the algorithm.
+- Algorithm-valid contact latch with three-window release hysteresis.
+- Two-line fixed status area showing V16 and raw I/R values.
+- No resize/negative-X clipping of the status diagnostic.
+- Lower minimum AC/DC ratio for weak but periodic PPG signals.

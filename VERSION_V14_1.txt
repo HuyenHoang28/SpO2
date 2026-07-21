@@ -1,0 +1,2 @@
+SpO_2 Complete Fixed v14.1
+CubeIDE linked-resource fix for finger_detector.c

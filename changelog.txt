@@ -1,0 +1,148 @@
+V11 - MAX30102 bus stability
+- Do not classify one transient FIFO read error as a missing sensor.
+- Confirm address loss repeatedly before showing MAX30102 MISSING.
+- Retry MAX30102 I2C register/FIFO transactions.
+- Reconfigure stalled FIFO without declaring device removal.
+- Give MAX30102 priority over RTC on I2C3.
+- Delay/rate-limit RTC probing and retain software-clock fallback.
+- Lower finger IR threshold to 5000 for weak breakout boards.
+
+v9 - TouchGFX uniform blue/cyan screen fix
+==============================================
+- Removed every diagnostic use of PD12/PD13; these are LCD control pins.
+- Moved status LEDs to the board-correct PG13/PG14 pins.
+- Restored the official TouchGFX 4.26 taskEntry/VSYNC event loop.
+- Removed all framebuffer diagnostic color overwrites.
+- Kept one RGB565 framebuffer fixed at 0xD0000000.
+- Disabled touch input during bring-up to isolate I2C3 from the GUI.
+- Added PG13 frame-flush heartbeat and PG14 fault indicator.
+
+3.0.26
+- Updated to STM32CubeMX 6.18.0
+
+3.0.25
+- Updated to STM32CubeMX 6.17.0
+
+3.0.24
+- Updated to STM32CubeMX 6.16.0
+- Updated to Firmware Package FW_F4 V1.28.3
+- Added new linker script to match ST Arm Clang requirements. This linker script is now also used for both Run Target and CubeIDE builds, and the old linker scripts have been removed.
+
+3.0.23
+- Updated to TouchGFX 4.26.0
+
+3.0.22
+- Updated to STM32CubeMX 6.15.0
+- Updated to Firmware Package FW_F4 V1.28.2
+- Added print of memory usage to TouchGFX Designer "Run target" build script log
+
+3.0.21
+- Update the touchcontroller driver to support all currently known revisions of the board (rev. E01 and older)
+- Fix issue in .extSettings file
+
+3.0.20
+- Updated to STM32CubeMX 6.14.0
+- Updated to TouchGFX 4.25.0
+
+3.0.19
+- Updated to STM32CubeMX 6.13.0
+- Updated to Firmware Package FW_F4 V1.28.1
+
+3.0.18
+- Updated to STM32CubeMX 6.12.0
+- SYSCLK increased from 168 MHz to 180 MHz
+
+3.0.17
+- Updated to TouchGFX 4.24.0
+
+3.0.16
+- Updated to STM32CubeMX 6.11.0
+
+3.0.15
+- Updated to TouchGFX 4.23.0
+- Updated to STM32CubeMX 6.10.0
+- Updated to FW 1.28.0
+- Enabled support for vector fonts
+
+3.0.14
+- Upgraded to STM32CubeMX 6.9.1
+
+3.0.13
+- Upgraded to TouchGFX 4.22.0
+
+3.0.12
+- Upgraded to STM32CubeMX 6.8.0
+
+3.0.11
+- Upgraded to TouchGFX 4.21.0
+- Upgraded to STM32CubeMX 6.7.0
+- Upgraded to Firmware Package FW_F4 1.27.1
+
+3.0.10
+- Upgraded to TouchGFX 4.20.0
+- Added Readme
+
+3.0.9
+- Upgraded to TouchGFX 4.19.1
+- Upgraded to STM32CubeMX 6.5.0
+- Upgraded to Firmware Package FW_F4 1.27.0
+- Added GPIO pins (VSYNC_FREQ, RENDER_TIME, FRAME_RATE, MCU_ACTIVE) for performance testing 
+
+3.0.8
+- Upgraded to TouchGFX 4.18.1
+- Upgraded to STM32CubeMX 6.4.0
+
+3.0.7
+- Upgraded to TouchGFX 4.18
+
+3.0.6
+- Upgraded to STM32CubeMX 6.3.0
+- Upgraded to Firmware Package FW_F4 1.26.2
+- Bugfixing for EWARM
+
+3.0.5
+- Upgraded to TouchGFX 4.17
+- Upgraded to STM32CubeMX 6.2.1
+- Upgraded to Firmware Package FW_F4 1.26.1
+- Added DefaultTask to allow IP integration out of STM32CubeMX
+2026-07-17 - SpO2 integration
+- Added MAX30102, Tiny RTC and SpO2 processing modules.
+- Added I2C1 PB6/PB7 and FreeRTOS sensor processing.
+- Connected live data to both TouchGFX screens.
+- Fixed framebuffer color-depth mismatch and invisible text.
+- Removed generated random graph data.
+
+2026-07-17 - TouchGFX RGB565 linker fix
+- Added PaintRGB565Impl.hpp to TouchGFX/target/TouchGFXHAL.cpp.
+- Fixes missing lineFromColor/lineFromRGB565/lineFromARGB8888 symbols with TouchGFX 4.26.1.
+- Added docs/BUILD_FIX_TOUCHGFX_RGB565.md.
+
+2026-07-17 - TouchGFX DMA2D/RGB565 fix v3
+- Moved PaintRGB565Impl.hpp into TouchGFX/target/generated/STM32DMA.cpp so the RGB565 painter functions are compiled in the DMA2D translation unit exactly once.
+- Fixed DMA2D CLUT addresses (palette->data instead of &palette->data).
+- Fixed foreground alpha register mask/position usage.
+- Used DMA2D_M2M_PFC for opaque RGB888/RGB565 conversions.
+- Replaced direct pointer-to-uint32_t casts with a uintptr_t helper.
+
+V4 - TouchGFX paint multiple-definition fix
+-------------------------------------------
+- Removed all PaintImpl/PaintRGB565Impl implementation includes from TouchGFXHAL.cpp.
+- Integrated RGB565 painter functions into generated STM32DMA.cpp without importing PaintImpl.hpp.
+- Kept setL8Palette, tearDown, flushLine and invalidateTextureCache in exactly one translation unit.
+- Updated setL8Palette to initialize both DMA2D and software RGB565 palettes.
+- Fixes linker errors reporting multiple definitions between TouchGFXHAL.o and STM32DMA.o.
+
+
+V8 - Deterministic single-framebuffer display bring-up
+-------------------------------------------------------
+- Removed animationStorage from the TouchGFX framebuffer section.
+- Added one 240x320 RGB565 framebuffer fixed at SDRAM address 0xD0000000.
+- Added linker ASSERT checks for framebuffer address and exact 153600-byte size.
+- Replaced DMA2D rendering with touchgfx::NoDMA and one software RGB565 painter.
+- Removed the first-frame dependency on LTDC/DMA2D interrupts and buffer swaps.
+- Initialized CMSIS-RTOS kernel before TouchGFX creates RTOS objects.
+- Deferred MAX30102/RTC startup until a real Screen1 marker frame is detected.
+- Added orange/yellow/red/magenta hardware diagnostics and LD3 GUI heartbeat.
+- Validated the actual FrontendHeap/Application/HAL::tick path in a headless render.
+
+V17: added MAX30102 config readback, FIFO pointer diagnostics, and force-start recovery for N=0/I=0/R=0.

@@ -1,0 +1,6 @@
+SpO_2 Complete Fixed v14
+- Replaced startup-average finger calibration with a tested Red/IR window detector.
+- Fixed immediate-finger baseline poisoning.
+- Removed duplicate finger rejection from the BPM/SpO2 algorithm path.
+- Restored reference LED current 0x3C and added bounded automatic gain adjustment.
+- Added raw IR and acquisition progress to TouchGFX status.

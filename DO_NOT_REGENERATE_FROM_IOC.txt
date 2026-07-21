@@ -1,0 +1,1 @@
+Không bấm Generate Code từ file .ioc trong bản v5. Pinout cũ trong .ioc từng gán PB6 cho I2C1 và sẽ làm hỏng cấu hình SDRAM. Hãy build trực tiếp bằng STM32CubeIDE.
