@@ -3,6 +3,8 @@
 
 #include <stdint.h>
 
+static constexpr int16_t SPO2_LOW_THRESHOLD_PERCENT = 85;
+
 enum SpO2UiStatus
 {
     SPO2_UI_SENSOR_ERROR = 0,

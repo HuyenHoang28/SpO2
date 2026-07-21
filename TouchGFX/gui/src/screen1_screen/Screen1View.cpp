@@ -159,29 +159,15 @@ void Screen1View::updateData(const SpO2UiData& data)
     {
         if (data.bufferedSamples == 0U)
         {
-            const unsigned mode =
-                static_cast<unsigned>((data.fingerThreshold >> 24U) & 0xFFU);
-            const unsigned fifoCfg =
-                static_cast<unsigned>((data.fingerThreshold >> 16U) & 0xFFU);
-            const unsigned spo2Cfg =
-                static_cast<unsigned>((data.fingerThreshold >> 8U) & 0xFFU);
-            const unsigned led =
-                static_cast<unsigned>(data.fingerThreshold & 0xFFU);
-            const unsigned wr =
-                static_cast<unsigned>((data.irSpan >> 16U) & 0x1FU);
-            const unsigned rd =
-                static_cast<unsigned>(data.irSpan & 0x1FU);
-            Unicode::snprintf(textStatusBuffer, TEXTSTATUS_SIZE,
-                              "V17 FIFO M:%x W:%x R:%x\nF:%x S:%x L:%x",
-                              mode, wr, rd, fifoCfg, spo2Cfg, led);
+            Unicode::fromUTF8(reinterpret_cast<const uint8_t*>("PLACE FINGER"),
+                              textStatusBuffer,
+                              TEXTSTATUS_SIZE);
         }
         else
         {
             Unicode::snprintf(textStatusBuffer, TEXTSTATUS_SIZE,
-                              "V17 PF N:%u\nI:%u R:%u",
-                              static_cast<unsigned>(data.bufferedSamples),
-                              static_cast<unsigned>(data.rawIr),
-                              static_cast<unsigned>(data.rawRed));
+                              "PLACE FINGER %u",
+                              static_cast<unsigned>(data.bufferedSamples));
         }
     }
     else if (data.status == SPO2_UI_MEASURING)
@@ -190,36 +176,30 @@ void Screen1View::updateData(const SpO2UiData& data)
             (data.bufferedSamples >= 100U)
                 ? 100U
                 : static_cast<unsigned>(data.bufferedSamples);
-        if (data.heartRateValid && !data.spo2Valid)
+        if (data.spo2Valid)
         {
             Unicode::snprintf(textStatusBuffer, TEXTSTATUS_SIZE,
-                              "BPM OK SPO2 WAIT\nI:%u R:%u",
-                              static_cast<unsigned>(data.rawIr),
-                              static_cast<unsigned>(data.rawRed));
-        }
-        else if (!data.heartRateValid && data.spo2Valid)
-        {
-            Unicode::snprintf(textStatusBuffer, TEXTSTATUS_SIZE,
-                              "SPO2 OK BPM WAIT\nI:%u R:%u",
-                              static_cast<unsigned>(data.rawIr),
-                              static_cast<unsigned>(data.rawRed));
+                              "MEASURING %u%%",
+                              progress);
         }
         else
         {
-            Unicode::snprintf(textStatusBuffer, TEXTSTATUS_SIZE,
-                              "V17 MEAS %u%%\nI:%u R:%u",
-                              progress,
-                              static_cast<unsigned>(data.rawIr),
-                              static_cast<unsigned>(data.rawRed));
+            Unicode::fromUTF8(reinterpret_cast<const uint8_t*>("MEASURING..."),
+                              textStatusBuffer,
+                              TEXTSTATUS_SIZE);
         }
     }
     else if (data.status == SPO2_UI_INVALID_SIGNAL)
     {
+        Unicode::fromUTF8(reinterpret_cast<const uint8_t*>("WEAK SIGNAL"),
+                          textStatusBuffer,
+                          TEXTSTATUS_SIZE);
+    }
+    else if (data.status == SPO2_UI_LOW_SPO2)
+    {
         Unicode::snprintf(textStatusBuffer, TEXTSTATUS_SIZE,
-                          "V17 HOLD N:%u\nI:%u R:%u",
-                          static_cast<unsigned>(data.bufferedSamples),
-                          static_cast<unsigned>(data.rawIr),
-                          static_cast<unsigned>(data.rawRed));
+                          "LOW SPO2 %d%%",
+                          static_cast<int>(data.spo2Percent));
     }
     else
     {
