@@ -9,6 +9,22 @@ Screen2Presenter::Screen2Presenter(Screen2View& v)
 
 void Screen2Presenter::activate()
 {
+    if (model != 0)
+    {
+        float bpmHistory[Model::GRAPH_HISTORY_SIZE];
+        float spo2History[Model::GRAPH_HISTORY_SIZE];
+        uint16_t historyCount = 0U;
+        uint32_t latestSequence = 0U;
+
+        model->copyGraphHistory(bpmHistory,
+                                spo2History,
+                                historyCount,
+                    latestSequence);
+        view.preloadGraphHistory(bpmHistory,
+                                 spo2History,
+                                 historyCount,
+                     latestSequence);
+    }
 
 }
 

@@ -16,11 +16,21 @@ public:
     virtual void handleTickEvent();
     virtual void handleClickEvent(const touchgfx::ClickEvent& event);
 
+    void preloadGraphHistory(const float* bpmValues,
+                             const float* spo2Values,
+                             uint16_t count,
+                             uint32_t latestSequence);
     void updateData(const SpO2UiData& data);
+
+    void appendGraphSample(float bpmValue, float spo2Value, bool interpolateFromPrevious);
 
 protected:
     bool buttonWasPressed;
     uint32_t lastMeasurementSequence;
+    bool hasPreviousGraphSample;
+    bool interpolationPhase;
+    float previousBpmSample;
+    float previousSpo2Sample;
 };
 
 #endif // SCREEN2VIEW_HPP
