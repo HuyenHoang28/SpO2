@@ -105,6 +105,7 @@ void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
 static void MX_CRC_Init(void);
 static void MX_I2C3_Init(void);
+static void USART1_Init(void);
 static void MX_SPI5_Init(void);
 static void MX_DMA2D_Init(void);
 static void MX_LTDC_Init(void);
@@ -261,6 +262,7 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
+  USART1_Init();
   MX_CRC_Init();
   MX_I2C3_Init();
   MX_SPI5_Init();
@@ -1103,6 +1105,77 @@ void LCD_Delay(uint32_t Delay)
 
 /* USER CODE END 4 */
 
+/* USER CODE BEGIN 4 — USART1 init + alarm helpers */
+
+/* Bare-register USART1: no HAL UART driver needed (not included in this project).
+ * PA9=TX AF7, 115200 baud, 8N1. APB2 clock = 90 MHz → BRR = 90000000/115200 ≈ 781. */
+static void USART1_Init(void)
+{
+  /* Clock enables */
+  RCC->APB2ENR |= RCC_APB2ENR_USART1EN;
+  RCC->AHB1ENR |= RCC_AHB1ENR_GPIOAEN;
+
+  /* PA9 → AF7 (USART1_TX), output push-pull, high speed */
+  GPIOA->MODER   = (GPIOA->MODER   & ~(3U << 18)) | (2U << 18); /* Alternate */
+  GPIOA->OSPEEDR = (GPIOA->OSPEEDR & ~(3U << 18)) | (3U << 18); /* Very high */
+  GPIOA->OTYPER  &= ~(1U << 9);                                  /* Push-pull */
+  GPIOA->PUPDR   = (GPIOA->PUPDR   & ~(3U << 18));               /* No pull */
+  GPIOA->AFR[1]  = (GPIOA->AFR[1]  & ~(0xFU << 4)) | (7U << 4); /* AF7 */
+
+  /* USART1 config: 115200 baud (BRR=781 @ 90 MHz APB2), 8N1, TX only */
+  USART1->BRR = 781U;
+  USART1->CR1 = USART_CR1_UE | USART_CR1_TE; /* Enable USART + TX */
+}
+
+static void USART1_SendByte(uint8_t b)
+{
+  while (!(USART1->SR & USART_SR_TXE)) {}
+  USART1->DR = b;
+}
+
+static void USART_SendSnapshot(const SpO2AppSnapshot *snap)
+{
+  char buf[48];
+  const char *st;
+  switch (snap->status)
+  {
+    case SPO2_APP_NORMAL:          st = "OK";  break;
+    case SPO2_APP_LOW_SPO2:        st = "LO2"; break;
+    case SPO2_APP_LOW_HEART_RATE:  st = "LHR"; break;
+    case SPO2_APP_HIGH_HEART_RATE: st = "HHR"; break;
+    default:                       st = "ERR"; break;
+  }
+  int len = snprintf(buf, sizeof(buf), "BPM:%3d,SPO2:%3d,ST:%s\r\n",
+                     (int)snap->heart_rate_bpm,
+                     (int)snap->spo2_percent,
+                     st);
+  /* Blocking byte-by-byte TX (~2ms for 24 bytes at 115200bps).
+   * Called after I2C3_BusUnlock() — mutex is free, GUI task unaffected. */
+  for (int i = 0; i < len; i++)
+  {
+    USART1_SendByte((uint8_t)buf[i]);
+  }
+}
+
+static void LED_UpdateAlarm(const SpO2AppSnapshot *snap)
+{
+  const bool alarm = snap->low_spo2 || snap->abnormal_heart_rate;
+
+  if (!alarm)
+  {
+    HAL_GPIO_WritePin(GPIOG, GPIO_PIN_13 | GPIO_PIN_14, GPIO_PIN_RESET);
+    return;
+  }
+
+  /* Non-blocking 1 Hz blink: (tick/500)%2 toggles every 500ms.
+   * Task runs every 20ms so worst-case phase error is 20ms — acceptable. */
+  uint32_t tick = osKernelGetTickCount();
+  GPIO_PinState state = ((tick / 500U) % 2U == 0U) ? GPIO_PIN_SET : GPIO_PIN_RESET;
+  HAL_GPIO_WritePin(GPIOG, GPIO_PIN_13 | GPIO_PIN_14, state);
+}
+
+/* USER CODE END 4 — USART1 init + alarm helpers */
+
 /* USER CODE BEGIN Header_StartDefaultTask */
 /**
   * @brief  Function implementing the defaultTask thread.
@@ -1126,7 +1199,13 @@ void StartDefaultTask(void *argument)
   {
     I2C3_BusLock();
     SpO2App_Process();
-    I2C3_BusUnlock();
+    I2C3_BusUnlock();        /* mutex released BEFORE TX and LED — never held during blocking calls */
+
+    SpO2AppSnapshot snap;
+    SpO2App_GetSnapshot(&snap);
+    USART_SendSnapshot(&snap);
+    LED_UpdateAlarm(&snap);
+
     osDelay(20U);
   }
 }
