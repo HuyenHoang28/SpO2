@@ -13,11 +13,8 @@ extern "C" {
 #define SPO2_APP_BUFFER_LENGTH             100U
 #define SPO2_APP_RECALCULATE_SAMPLES       25U
 #define SPO2_APP_FIFO_SAMPLE_RATE_HZ       100.0f
-/* Finger detection is calibrated from the live no-finger optical level.
- * The minimum prevents electrical noise near zero from being treated as a
- * finger; the adaptive threshold handles clone breakouts whose raw IR level
- * is much lower than the fixed 5000-count threshold used previously. */
-#define SPO2_APP_LOW_SPO2_THRESHOLD        94
+/* SpO2 warning threshold used by the measurement state machine. */
+#define SPO2_APP_LOW_SPO2_THRESHOLD        85
 
 typedef enum {
     SPO2_APP_SENSOR_ERROR = 0,

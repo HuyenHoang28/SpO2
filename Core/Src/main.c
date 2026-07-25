@@ -26,6 +26,8 @@
 /* USER CODE BEGIN Includes */
 #include "Components/ili9341/ili9341.h"
 #include "spo2_app.h"
+#include "uart_stream.h"
+#include "alarm_led.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -287,6 +289,8 @@ int main(void)
   /* USER CODE BEGIN 2 */
   /* Sensor/RTC initialization is intentionally deferred to defaultTask.
    * This lets TouchGFX render the first frame immediately after the scheduler starts. */
+  UartStream_Init();
+  AlarmLed_Init();
   /* USER CODE END 2 */
 
   /* I2C3 is shared by STMPE811 touch, MAX30102 and Tiny RTC. */
@@ -1122,11 +1126,31 @@ void StartDefaultTask(void *argument)
   SpO2App_Init(&hi2c3, SPO2_RTC_KIND);
   I2C3_BusUnlock();
 
+  static uint32_t last_tx_ms = 0U;
+
   for (;;)
   {
     I2C3_BusLock();
     SpO2App_Process();
     I2C3_BusUnlock();
+
+    SpO2AppSnapshot snap;
+    SpO2App_GetSnapshot(&snap);
+
+    const uint32_t now_ms = HAL_GetTick();
+    /* Throttle to ~10 Hz: 30-byte packet @ 115200 bps => ~2.6 ms per frame. */
+    if ((now_ms - last_tx_ms) >= 100U)
+    {
+      last_tx_ms = now_ms;
+      UartStream_SendSpO2(snap.heart_rate_bpm,
+                          snap.spo2_percent,
+                          snap.low_spo2,
+                          snap.abnormal_heart_rate,
+                          now_ms);
+    }
+
+    AlarmLed_Update(snap.low_spo2 || snap.abnormal_heart_rate);
+
     osDelay(20U);
   }
 }

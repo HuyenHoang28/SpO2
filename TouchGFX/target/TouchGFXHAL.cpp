@@ -58,13 +58,8 @@ void TouchGFXHAL::flushFrameBuffer(const touchgfx::Rect& rect)
     TouchGFXGeneratedHAL::flushFrameBuffer(rect);
     ++g_touchgfxFrameCounter;
 
-    /* LD3 on STM32F429I-DISCO is PG13. Toggle slowly only after a complete
-       TouchGFX flush. Never use PD12/PD13 as LEDs: they belong to the LCD
-       command interface. */
-    if ((g_touchgfxFrameCounter % 30U) == 0U)
-    {
-        HAL_GPIO_TogglePin(GPIOG, GPIO_PIN_13);
-    }
+    /* PG13/PG14 are owned by the SpO2 alarm module (AlarmLed_*) and must
+       not be driven from the GUI flush path. */
 }
 
 bool TouchGFXHAL::sampleKey(uint8_t& key)

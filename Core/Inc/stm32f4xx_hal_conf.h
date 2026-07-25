@@ -64,6 +64,9 @@
 /* #define HAL_MMC_MODULE_ENABLED */
 #define HAL_SPI_MODULE_ENABLED
 #define HAL_TIM_MODULE_ENABLED
+/* USART1 (SpO2 telemetry) is driven directly through registers in
+ * uart_stream.c because the vendor HAL UART source is not part of this
+ * project's Drivers/ tree. Only the DMA half uses HAL. */
 /* #define HAL_UART_MODULE_ENABLED */
 /* #define HAL_USART_MODULE_ENABLED */
 /* #define HAL_IRDA_MODULE_ENABLED */

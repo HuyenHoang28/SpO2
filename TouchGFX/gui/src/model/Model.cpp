@@ -38,16 +38,6 @@ static SpO2UiStatus mapStatus(SpO2AppStatus status)
     default:                       return SPO2_UI_SENSOR_ERROR;
     }
 }
-
-static SpO2UiStatus resolveStatus(const SpO2UiData& data)
-{
-    if (data.spo2Valid && (data.spo2Percent < SPO2_LOW_THRESHOLD_PERCENT))
-    {
-        return SPO2_UI_LOW_SPO2;
-    }
-
-    return data.status;
-}
 #endif
 
 void Model::tick()
@@ -133,7 +123,6 @@ void Model::tick()
     data.hour = snapshot.date_time.hour;
     data.minute = snapshot.date_time.minute;
     data.second = snapshot.date_time.second;
-    data.status = resolveStatus(data);
     appendGraphSample(data);
     modelListener->onSpO2DataChanged(data);
 #endif

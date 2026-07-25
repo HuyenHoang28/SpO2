@@ -59,6 +59,7 @@
 extern DMA2D_HandleTypeDef hdma2d;
 extern LTDC_HandleTypeDef hltdc;
 extern TIM_HandleTypeDef htim6;
+extern DMA_HandleTypeDef  hdma_usart1_tx;
 
 /* USER CODE BEGIN EV */
 
@@ -201,5 +202,11 @@ void DMA2D_IRQHandler(void)
 }
 
 /* USER CODE BEGIN 1 */
-
+/**
+  * @brief This function handles DMA2 Stream7 global interrupt (USART1_TX).
+  */
+void DMA2_Stream7_IRQHandler(void)
+{
+  HAL_DMA_IRQHandler(&hdma_usart1_tx);
+}
 /* USER CODE END 1 */

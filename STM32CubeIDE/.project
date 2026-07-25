@@ -340,6 +340,16 @@
 			<locationURI>$%7BPARENT-1-PROJECT_LOC%7D/Core/Src/spo2_app.c</locationURI>
 		</link>
 		<link>
+			<name>Application/User/uart_stream.c</name>
+			<type>1</type>
+			<locationURI>$%7BPARENT-1-PROJECT_LOC%7D/Core/Src/uart_stream.c</locationURI>
+		</link>
+		<link>
+			<name>Application/User/alarm_led.c</name>
+			<type>1</type>
+			<locationURI>$%7BPARENT-1-PROJECT_LOC%7D/Core/Src/alarm_led.c</locationURI>
+		</link>
+		<link>
 			<name>Application/User/tiny_rtc.c</name>
 			<type>1</type>
 			<locationURI>$%7BPARENT-1-PROJECT_LOC%7D/Core/Src/tiny_rtc.c</locationURI>
