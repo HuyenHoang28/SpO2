@@ -1,0 +1,6 @@
+C:/TouchGFXProjects/SpO_2_Complete_Fixed_v17_Phuc/v17work/Core/Src/finger_detector.c:62:6:FingerDetector_Reset	2
+C:/TouchGFXProjects/SpO_2_Complete_Fixed_v17_Phuc/v17work/Core/Src/finger_detector.c:71:6:FingerDetector_Update	29
+C:/TouchGFXProjects/SpO_2_Complete_Fixed_v17_Phuc/v17work/Core/Src/finger_detector.c:203:10:FingerDetector_GetMeanIR	2
+C:/TouchGFXProjects/SpO_2_Complete_Fixed_v17_Phuc/v17work/Core/Src/finger_detector.c:208:10:FingerDetector_GetMeanRed	2
+C:/TouchGFXProjects/SpO_2_Complete_Fixed_v17_Phuc/v17work/Core/Src/finger_detector.c:213:10:FingerDetector_GetThresholdIR	2
+C:/TouchGFXProjects/SpO_2_Complete_Fixed_v17_Phuc/v17work/Core/Src/finger_detector.c:218:10:FingerDetector_GetSpanIR	2

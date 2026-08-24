@@ -1,0 +1,13 @@
+C:/TouchGFXProjects/SpO_2_Complete_Fixed_v17_Phuc/v17work/Core/Src/stm32f4xx_hal_msp.c:63:6:HAL_MspInit	1
+C:/TouchGFXProjects/SpO_2_Complete_Fixed_v17_Phuc/v17work/Core/Src/stm32f4xx_hal_msp.c:88:6:HAL_CRC_MspInit	2
+C:/TouchGFXProjects/SpO_2_Complete_Fixed_v17_Phuc/v17work/Core/Src/stm32f4xx_hal_msp.c:111:6:HAL_CRC_MspDeInit	2
+C:/TouchGFXProjects/SpO_2_Complete_Fixed_v17_Phuc/v17work/Core/Src/stm32f4xx_hal_msp.c:133:6:HAL_DMA2D_MspInit	2
+C:/TouchGFXProjects/SpO_2_Complete_Fixed_v17_Phuc/v17work/Core/Src/stm32f4xx_hal_msp.c:159:6:HAL_DMA2D_MspDeInit	2
+C:/TouchGFXProjects/SpO_2_Complete_Fixed_v17_Phuc/v17work/Core/Src/stm32f4xx_hal_msp.c:184:6:HAL_I2C_MspInit	2
+C:/TouchGFXProjects/SpO_2_Complete_Fixed_v17_Phuc/v17work/Core/Src/stm32f4xx_hal_msp.c:233:6:HAL_I2C_MspDeInit	2
+C:/TouchGFXProjects/SpO_2_Complete_Fixed_v17_Phuc/v17work/Core/Src/stm32f4xx_hal_msp.c:264:6:HAL_LTDC_MspInit	3
+C:/TouchGFXProjects/SpO_2_Complete_Fixed_v17_Phuc/v17work/Core/Src/stm32f4xx_hal_msp.c:387:6:HAL_LTDC_MspDeInit	2
+C:/TouchGFXProjects/SpO_2_Complete_Fixed_v17_Phuc/v17work/Core/Src/stm32f4xx_hal_msp.c:447:6:HAL_SPI_MspInit	2
+C:/TouchGFXProjects/SpO_2_Complete_Fixed_v17_Phuc/v17work/Core/Src/stm32f4xx_hal_msp.c:485:6:HAL_SPI_MspDeInit	2
+C:/TouchGFXProjects/SpO_2_Complete_Fixed_v17_Phuc/v17work/Core/Src/stm32f4xx_hal_msp.c:616:6:HAL_SDRAM_MspInit	2
+C:/TouchGFXProjects/SpO_2_Complete_Fixed_v17_Phuc/v17work/Core/Src/stm32f4xx_hal_msp.c:700:6:HAL_SDRAM_MspDeInit	2

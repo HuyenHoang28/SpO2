@@ -1,0 +1,6 @@
+C:/TouchGFXProjects/SpO_2_Complete_Fixed_v17_Phuc/v17work/Core/Src/tiny_rtc.c:11:16:bcd_to_bin	0	static
+C:/TouchGFXProjects/SpO_2_Complete_Fixed_v17_Phuc/v17work/Core/Src/tiny_rtc.c:21:13:valid_date_time	0	static
+C:/TouchGFXProjects/SpO_2_Complete_Fixed_v17_Phuc/v17work/Core/Src/tiny_rtc.c:32:16:TinyRTC_Init	8	static
+C:/TouchGFXProjects/SpO_2_Complete_Fixed_v17_Phuc/v17work/Core/Src/tiny_rtc.c:53:16:TinyRTC_GetDateTime	32	static
+C:/TouchGFXProjects/SpO_2_Complete_Fixed_v17_Phuc/v17work/Core/Src/tiny_rtc.c:99:16:TinyRTC_SetDateTime	56	static
+C:/TouchGFXProjects/SpO_2_Complete_Fixed_v17_Phuc/v17work/Core/Src/tiny_rtc.c:150:16:TinyRTC_IsTimeValid	40	static

@@ -1,0 +1,11 @@
+../../Middlewares/ST/touchgfx/framework/include/touchgfx/Screen.hpp:104:18:virtual void touchgfx::Screen::afterTransition()	1
+C:/TouchGFXProjects/SpO_2_Complete_Fixed_v17_Phuc/v17work/TouchGFX/gui/src/screen2_screen/Screen2View.cpp:29:6:virtual void Screen2View::tearDownScreen()	1
+C:/TouchGFXProjects/SpO_2_Complete_Fixed_v17_Phuc/v17work/TouchGFX/gui/src/screen2_screen/Screen2View.cpp:34:6:virtual void Screen2View::handleTickEvent()	3
+../../TouchGFX/gui/include/gui/screen2_screen/Screen2View.hpp:13:13:Screen2View::~Screen2View()	1
+../../TouchGFX/gui/include/gui/screen2_screen/Screen2View.hpp:13:13:virtual Screen2View::~Screen2View()	1
+C:/TouchGFXProjects/SpO_2_Complete_Fixed_v17_Phuc/v17work/TouchGFX/gui/src/screen2_screen/Screen2View.cpp:46:6:virtual void Screen2View::handleClickEvent(const touchgfx::ClickEvent&)	2
+C:/TouchGFXProjects/SpO_2_Complete_Fixed_v17_Phuc/v17work/TouchGFX/gui/src/screen2_screen/Screen2View.cpp:11:1:Screen2View::Screen2View()	1
+C:/TouchGFXProjects/SpO_2_Complete_Fixed_v17_Phuc/v17work/TouchGFX/gui/src/screen2_screen/Screen2View.cpp:85:6:void Screen2View::appendGraphSample(float, float, bool)	8
+C:/TouchGFXProjects/SpO_2_Complete_Fixed_v17_Phuc/v17work/TouchGFX/gui/src/screen2_screen/Screen2View.cpp:103:6:void Screen2View::updateData(const SpO2UiData&)	4
+C:/TouchGFXProjects/SpO_2_Complete_Fixed_v17_Phuc/v17work/TouchGFX/gui/src/screen2_screen/Screen2View.cpp:21:6:virtual void Screen2View::setupScreen()	1
+C:/TouchGFXProjects/SpO_2_Complete_Fixed_v17_Phuc/v17work/TouchGFX/gui/src/screen2_screen/Screen2View.cpp:54:6:void Screen2View::preloadGraphHistory(const float*, const float*, uint16_t, uint32_t)	7

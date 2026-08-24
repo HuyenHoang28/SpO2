@@ -1,0 +1,12 @@
+C:/TouchGFXProjects/SpO_2_Complete_Fixed_v17_Phuc/v17work/Core/Src/max30102.c:34:24:write_reg	5
+C:/TouchGFXProjects/SpO_2_Complete_Fixed_v17_Phuc/v17work/Core/Src/max30102.c:57:24:read_regs	6
+C:/TouchGFXProjects/SpO_2_Complete_Fixed_v17_Phuc/v17work/Core/Src/max30102.c:82:17:MAX30102_ReadPartId	3
+C:/TouchGFXProjects/SpO_2_Complete_Fixed_v17_Phuc/v17work/Core/Src/max30102.c:98:17:MAX30102_Reset	5
+C:/TouchGFXProjects/SpO_2_Complete_Fixed_v17_Phuc/v17work/Core/Src/max30102.c:124:17:MAX30102_ClearFIFO	5
+C:/TouchGFXProjects/SpO_2_Complete_Fixed_v17_Phuc/v17work/Core/Src/max30102.c:147:17:MAX30102_DiagnoseBus	7
+C:/TouchGFXProjects/SpO_2_Complete_Fixed_v17_Phuc/v17work/Core/Src/max30102.c:277:17:MAX30102_SetLedCurrent	4
+C:/TouchGFXProjects/SpO_2_Complete_Fixed_v17_Phuc/v17work/Core/Src/max30102.c:184:17:MAX30102_InitDefault	14
+C:/TouchGFXProjects/SpO_2_Complete_Fixed_v17_Phuc/v17work/Core/Src/max30102.c:293:17:MAX30102_Shutdown	3
+C:/TouchGFXProjects/SpO_2_Complete_Fixed_v17_Phuc/v17work/Core/Src/max30102.c:310:17:MAX30102_ReadAvailable	11
+C:/TouchGFXProjects/SpO_2_Complete_Fixed_v17_Phuc/v17work/Core/Src/max30102.c:366:17:MAX30102_ReadDiagnostic	8
+C:/TouchGFXProjects/SpO_2_Complete_Fixed_v17_Phuc/v17work/Core/Src/max30102.c:416:17:MAX30102_ForceMeasurement	11

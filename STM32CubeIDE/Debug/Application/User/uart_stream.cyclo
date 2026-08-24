@@ -1,0 +1,4 @@
+C:/TouchGFXProjects/SpO_2_Complete_Fixed_v17_Phuc/v17work/Core/Src/uart_stream.c:22:13:UartStream_DmaTxCplt	2
+C:/TouchGFXProjects/SpO_2_Complete_Fixed_v17_Phuc/v17work/Core/Src/uart_stream.c:32:13:UartStream_DmaTxError	1
+C:/TouchGFXProjects/SpO_2_Complete_Fixed_v17_Phuc/v17work/Core/Src/uart_stream.c:40:6:UartStream_Init	1
+C:/TouchGFXProjects/SpO_2_Complete_Fixed_v17_Phuc/v17work/Core/Src/uart_stream.c:88:6:UartStream_SendSpO2	3

@@ -1,0 +1,7 @@
+../../TouchGFX/gui/include/gui/screen2_screen/Screen2Presenter.hpp:30:13:Screen2Presenter::~Screen2Presenter()	1
+C:/TouchGFXProjects/SpO_2_Complete_Fixed_v17_Phuc/v17work/TouchGFX/gui/src/screen2_screen/Screen2Presenter.cpp:31:6:virtual void Screen2Presenter::deactivate()	1
+../../TouchGFX/gui/include/gui/screen2_screen/Screen2Presenter.hpp:30:13:virtual Screen2Presenter::~Screen2Presenter()	1
+C:/TouchGFXProjects/SpO_2_Complete_Fixed_v17_Phuc/v17work/TouchGFX/gui/src/screen2_screen/Screen2Presenter.cpp:10:6:virtual void Screen2Presenter::activate()	2
+C:/TouchGFXProjects/SpO_2_Complete_Fixed_v17_Phuc/v17work/TouchGFX/gui/src/screen2_screen/Screen2Presenter.cpp:36:6:virtual void Screen2Presenter::onSpO2DataChanged(const SpO2UiData&)	1
+../../TouchGFX/gui/include/gui/screen2_screen/Screen2Presenter.hpp:30:13:virtual void* Screen2Presenter::_ZThn4_N16Screen2PresenterD1Ev()	1
+C:/TouchGFXProjects/SpO_2_Complete_Fixed_v17_Phuc/v17work/TouchGFX/gui/src/screen2_screen/Screen2Presenter.cpp:4:1:Screen2Presenter::Screen2Presenter(Screen2View&)	1

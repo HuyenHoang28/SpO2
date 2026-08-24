@@ -1,0 +1,2 @@
+C:/TouchGFXProjects/SpO_2_Complete_Fixed_v17_Phuc/v17work/TouchGFX/generated/images/src/BitmapDatabase.cpp:14:37:const touchgfx::Bitmap::BitmapData* BitmapDatabase::getInstance()	1
+C:/TouchGFXProjects/SpO_2_Complete_Fixed_v17_Phuc/v17work/TouchGFX/generated/images/src/BitmapDatabase.cpp:19:10:uint16_t BitmapDatabase::getInstanceSize()	1

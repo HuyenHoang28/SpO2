@@ -1,0 +1,12 @@
+C:/TouchGFXProjects/SpO_2_Complete_Fixed_v17_Phuc/v17work/Core/Src/spo2_app.c:192:13:increment_sequence	0	static
+C:/TouchGFXProjects/SpO_2_Complete_Fixed_v17_Phuc/v17work/Core/Src/spo2_app.c:200:13:reset_measurement	0	static
+C:/TouchGFXProjects/SpO_2_Complete_Fixed_v17_Phuc/v17work/Core/Src/spo2_app.c:368:13:reset_finger_detector	16	static
+C:/TouchGFXProjects/SpO_2_Complete_Fixed_v17_Phuc/v17work/Core/Src/spo2_app.c:242:13:try_initialize_sensor.part.0	24	static
+C:/TouchGFXProjects/SpO_2_Complete_Fixed_v17_Phuc/v17work/Core/Src/spo2_app.c:219:13:update_sensor_diagnostic	24	static
+C:/TouchGFXProjects/SpO_2_Complete_Fixed_v17_Phuc/v17work/Core/Src/spo2_app.c:681:13:handle_sensor_read_error	24	static
+C:/TouchGFXProjects/SpO_2_Complete_Fixed_v17_Phuc/v17work/Core/Src/spo2_app.c:108:25:build_date_time	0	static
+C:/TouchGFXProjects/SpO_2_Complete_Fixed_v17_Phuc/v17work/Core/Src/spo2_app.c:327:13:update_rtc	80	static
+C:/TouchGFXProjects/SpO_2_Complete_Fixed_v17_Phuc/v17work/Core/Src/spo2_app.c:635:6:SpO2App_Init	40	static
+C:/TouchGFXProjects/SpO_2_Complete_Fixed_v17_Phuc/v17work/Core/Src/spo2_app.c:741:6:SpO2App_Process	136	static
+C:/TouchGFXProjects/SpO_2_Complete_Fixed_v17_Phuc/v17work/Core/Src/spo2_app.c:809:6:SpO2App_GetSnapshot	16	static,ignoring_inline_asm
+C:/TouchGFXProjects/SpO_2_Complete_Fixed_v17_Phuc/v17work/Core/Src/spo2_app.c:821:16:SpO2App_SetDateTime	16	static

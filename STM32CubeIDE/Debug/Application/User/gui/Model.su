@@ -1,0 +1,4 @@
+C:/TouchGFXProjects/SpO_2_Complete_Fixed_v17_Phuc/v17work/TouchGFX/gui/src/model/Model.cpp:13:1:Model::Model()	0	static
+C:/TouchGFXProjects/SpO_2_Complete_Fixed_v17_Phuc/v17work/TouchGFX/gui/src/model/Model.cpp:131:6:void Model::appendGraphSample(const SpO2UiData&)	0	static
+C:/TouchGFXProjects/SpO_2_Complete_Fixed_v17_Phuc/v17work/TouchGFX/gui/src/model/Model.cpp:43:6:void Model::tick()	136	static
+C:/TouchGFXProjects/SpO_2_Complete_Fixed_v17_Phuc/v17work/TouchGFX/gui/src/model/Model.cpp:152:6:void Model::copyGraphHistory(float*, float*, uint16_t&, uint32_t&) const	20	static
